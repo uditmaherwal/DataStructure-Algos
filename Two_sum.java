@@ -25,48 +25,50 @@ Output:
 
 //SOLUTION 1 :
 
-class Solution {
+import java.util.*;
+
+class Solution1 {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
-        for(int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             int needed = target - nums[i];
-            if(map.containsKey(needed)){
-                return new int[]{map.get(needed), i};
+            if (map.containsKey(needed)) {
+                return new int[] { map.get(needed), i };
             }
             map.put(nums[i], i);
         }
-        return new int[]{-1,-1};
+        return new int[] { -1, -1 };
     }
 }
 
-//SOLUTION 2 :
+// SOLUTION 2 :
 
-class Solution {
-  public int[] twoSum(int[] nums, int target) {
-    int n = nums.length;
+class Solution2 {
+    public int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
 
-    int[][] eleList = new int[n][2];
+        int[][] eleList = new int[n][2];
 
-    for (int i = 0; i < n; i++) {
-      eleList[i][0] = nums[i];
-      eleList[i][1] = i;
-    }
-
-    Arrays.sort(eleList, Comparator.comparingInt((int[] a) -> a[0]).thenComparingInt(a -> a[1]));
-
-    int left = 0;
-    int right = n-1;
-
-    while(left < right){
-        int sum = eleList[left][0] + eleList[right][0] ;
-        if(sum == target){
-            return new int[]{eleList[left][1], eleList[right][1]};
-        }else if(sum < target){
-            left++;
-        }else{
-            right--;
+        for (int i = 0; i < n; i++) {
+            eleList[i][0] = nums[i];
+            eleList[i][1] = i;
         }
+
+        Arrays.sort(eleList, Comparator.comparingInt((int[] a) -> a[0]).thenComparingInt(a -> a[1]));
+
+        int left = 0;
+        int right = n - 1;
+
+        while (left < right) {
+            int sum = eleList[left][0] + eleList[right][0];
+            if (sum == target) {
+                return new int[] { eleList[left][1], eleList[right][1] };
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return new int[] { -1, -1 };
     }
-    return new int[]{-1, -1};
-  }
 }
