@@ -27,20 +27,22 @@ class BinaryTree {
     }
 
     private void populate(Scanner scanner, Node node) {
-        System.out.println("Do you want to insert left of node : " + node.value);
+        System.out.println("Do you want to insert left of node " + node.value + " :");
         Boolean left = scanner.nextBoolean();
         if (left) {
             System.err.println("Enter the left node value : ");
-            node.left = new Node(scanner.nextInt());
-            populate(scanner, node);
+            int value = scanner.nextInt();
+            node.left = new Node(value);
+            populate(scanner, node.left);
         }
 
-        System.out.println("Do you want to insert right of node : " + node.value);
+        System.out.println("Do you want to insert right of node " + node.value + " :");
         Boolean right = scanner.nextBoolean();
         if (right) {
             System.err.println("Enter the right node value : ");
-            node.right = new Node(scanner.nextInt());
-            populate(scanner, node);
+            int value = scanner.nextInt();
+            node.right = new Node(value);
+            populate(scanner, node.right);
         }
     }
 
