@@ -23,7 +23,7 @@ Output: [1, 2, 4, 6, 8, 7, 5, 3]
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+class PrintTheSpiralMatrix {
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> ans = new ArrayList<>();
         int n = matrix.length;

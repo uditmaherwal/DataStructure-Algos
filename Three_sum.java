@@ -34,7 +34,7 @@ Output:
 
 import java.util.*;
 
-class Solution {
+class Three_sum {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         int sizeOfNums = nums.length;

@@ -21,7 +21,7 @@ Output:
 
 */
 
-class Solution {
+class Rotate_matrix_by_90_Degress {
     public void rotateMatrix(int[][] matrix) {
         int n = matrix.length;
 
